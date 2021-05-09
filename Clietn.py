@@ -77,4 +77,4 @@ def info(login,haslo):
         return render_template("info.html", ds = dane)
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
