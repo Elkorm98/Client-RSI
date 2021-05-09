@@ -3,7 +3,7 @@
     </head>
     
     <body>
-        
+        {%if ds.message =="zamowienie potwierdzone"%}
         <h2>{{ds.dane_sklepu.nazwa}}</h2>
         <p>Adres: {{ds.dane_sklepu.adres}}
         {{ds.dane_sklepu.miasto}} 
@@ -21,16 +21,17 @@
         {%endfor%}
     </p>
     <h1>{{ds.kwota}}</h1>
-    <p>{{ds.message}}</p>
-    {%if ds.message =="zamowienie potwierdzone"%}
+    
+    
          <form action = "#" method="POST">
             <input type ="submit" name = "btn" value="Pobierz potwierdzenie">
             </form>
     {%endif%}
+    <p>{{ds.message}}</p>
     <form action = "#" method="POST">
         <input type ="submit" name = "btn" value="Powrot do sklepu">
         </form>
-
+        
     </body>
     
     </html>
