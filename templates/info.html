@@ -1,0 +1,36 @@
+<head>
+    <title>Koszyk</title>
+    </head>
+    
+    <body>
+        
+        <h2>{{ds.dane_sklepu.nazwa}}</h2>
+        <p>Adres: {{ds.dane_sklepu.adres}}
+        {{ds.dane_sklepu.miasto}} 
+        {{ds.dane_sklepu.kod_pocztowy}}</p>
+        <p>Wlasciciel: {{ds.dane_sklepu.wlasciciel}}</p>
+        <p>email: {{ds.dane_sklepu.email}}</p>
+        <p>NIP: {{ds.dane_sklepu.NIP}}</p>
+        <br/>
+    <p>
+        {%for i in ds.koszyk%}
+           [ {{i.karta.nazwa}} ] <br/>
+            Cena: {{i.cena}}
+            Liczba sztuk:{{i.na_stanie}}
+            Razem: {{i.wartosc_razem}}<br/>
+        {%endfor%}
+    </p>
+    <h1>{{ds.kwota}}</h1>
+    <p>{{ds.message}}</p>
+    {%if ds.message =="zamowienie potwierdzone"%}
+         <form action = "#" method="POST">
+            <input type ="submit" name = "btn" value="Pobierz potwierdzenie">
+            </form>
+    {%endif%}
+    <form action = "#" method="POST">
+        <input type ="submit" name = "btn" value="Powrot do sklepu">
+        </form>
+
+    </body>
+    
+    </html>

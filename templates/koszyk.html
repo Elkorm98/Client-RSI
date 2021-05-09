@@ -1,0 +1,28 @@
+
+
+<head>
+<title>Koszyk</title>
+</head>
+
+<body>
+<p>
+    {%for i in koszyk%}
+       [ {{i.karta.nazwa}} ] <br/>
+        Cena: {{i.cena}}
+        Liczba sztuk:{{i.na_stanie}}
+        Razem: {{i.wartosc_razem}}<br/>
+        <form action = "#" method = "post">
+            <input type="submit" name = "{{i.karta.nazwa}}" value="Usun">
+        </form>
+    {%endfor%}
+    <form action = "#" method = "post">
+        <input type="submit"  name = "btnn" value="Zamow">
+    </form>
+    <form action = "#" method = "post">
+        <input type="submit"  name = "pow" value="Powrot do sklepu">
+    </form>
+</p>
+
+</body>
+
+</html>
