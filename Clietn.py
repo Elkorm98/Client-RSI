@@ -37,11 +37,11 @@ def userr(login,haslo):
             for i in magazyn:
                 if request.form[str(i.karta.nazwa)] != "0":
                     Client.service.dodaj_do_koszyka(konto.login,konto.haslo,i.karta.nazwa,request.form[i.karta.nazwa])
-            return render_template("sklep.html",magazyn = magazyn,ilustracje = ilustracjebase64,idilosc=idilosc)
+            return render_template("sklep.html",magazyn = magazyn,ilustracje = ilustracjebase64,idilosc=idilosc,konto=konto)
         if request.form["btn"] == "Przejdz do koszyka":
             return redirect(url_for("koszyk",login = konto.login, haslo = konto.haslo))
     else:
-        return render_template("sklep.html",magazyn = magazyn,ilustracje = ilustracjebase64,idilosc=idilosc,koszyk = konto.koszyk)
+        return render_template("sklep.html",magazyn = magazyn,ilustracje = ilustracjebase64,idilosc=idilosc,koszyk = konto.koszyk,konto = konto)
 
 @app.route("/koszyk/<login>/<haslo>",methods = ["POST","GET"])
 def koszyk(login,haslo):
@@ -74,7 +74,8 @@ def info(login,haslo):
             pdfkit.from_url("http://127.0.0.1:5000/koszyk/Lukasz/Kosmaty/#", 'Potwierdzenie zamowienia.pdf', configuration=config)
             return redirect(url_for("userr",login = konto.login, haslo = konto.haslo))
     else:
-        return render_template("info.html", ds = dane)
+        return render_template("info.html", ds = dane,konto=konto)
 
 if __name__ == '__main__':
     app.run(debug=True)
+    

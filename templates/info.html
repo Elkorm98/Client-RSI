@@ -2,7 +2,9 @@
 <head>
     <title>Koszyk</title>
     </head>
-    
+    <table>
+
+    <td>
     <body>
         {%if ds.message =="zamowienie potwierdzone"%}
         <h2>{{ds.dane_sklepu.nazwa}}</h2>
@@ -18,21 +20,31 @@
            [ {{i.karta.nazwa}} ] <br/>
             Cena: {{i.cena}}
             Liczba sztuk:{{i.na_stanie}}
-            Razem: {{i.wartosc_razem}}<br/>
+            Razem: {{i.wartosc_razem}}zł<br/>
         {%endfor%}
     </p>
-    <h1>{{ds.kwota}}</h1>
+    <h1>Łączna Kwota: {{ds.kwota}}zł</h1>
     
     
-         <form action = "#" method="POST">
-            <input type ="submit" name = "btn" value="Pobierz potwierdzenie">
-            </form>
-    {%endif%}
-    <p>{{ds.message}}</p>
     <form action = "#" method="POST">
-        <input type ="submit" name = "btn" value="Powrot do sklepu">
-        </form>
-        
+       <input type ="submit" name = "btn" value="Pobierz potwierdzenie">
+       </form>
+{%endif%}
+<p>{{ds.message}}</p>
+<form action = "#" method="POST">
+   <input type ="submit" name = "btn" value="Powrot do sklepu">
+   </form> 
+    </td>
+    <td>
+        <p>Imie i nazwisko: {{konto.imie}} {{konto.nazwisko}}</p>
+        <p>Adres: {{konto.adres}}
+            {{konto.miasto}} 
+            {{konto.kod_pocztowy}}</p>
+        <p>email: {{konto.email}}</p>
+        <p>nr tel. : {{konto.numer_telefonu}}</p>
+
+    </td>
+   
     </body>
     
     </html>

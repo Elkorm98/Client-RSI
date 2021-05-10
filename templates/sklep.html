@@ -9,9 +9,9 @@
 </head>
 
 <Body>
-
 <h1>Sklep MTG</h1>
-
+<h2>Witaj {{konto.imie}} {{konto.nazwisko}}!</h2>
+<h3>Twój stan konta: {{konto.stan_konta}}zł</h3>
 <p>
  
   <form action="#" method = "post">
@@ -30,6 +30,7 @@
       {%endfor%}
       <p><input type="submit" name ="btn" value="Dodaj do koszyka" ></p>
     </form>
+
 
 </body>
 
